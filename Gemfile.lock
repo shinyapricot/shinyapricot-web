@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/guard/guard-rspec.git
+  revision: 261c8ddd44c181a1ceecd4f978b2d96665e4e058
+  specs:
+    guard-rspec (2.5.1)
+      guard (>= 1.1)
+      rspec (~> 2.11)
+
+GIT
   remote: git://github.com/guard/guard-spork.git
   revision: 76155fb58f1c92536d1c8f91566983b7c373a52a
   specs:
@@ -44,6 +52,7 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bootstrap-sass (2.1.0.0)
     builder (3.0.4)
     capybara (1.1.2)
       mime-types (>= 1.16)
@@ -75,8 +84,6 @@ GEM
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
-    guard-rspec (1.2.1)
-      guard (>= 1.1)
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -174,10 +181,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (= 2.1)
   capybara (= 1.1.2)
   coffee-rails (= 3.2.2)
   growl (= 1.0.3)
-  guard-rspec (= 1.2.1)
+  guard-rspec!
   guard-spork!
   jquery-rails (= 2.0.2)
   pg (= 0.12.2)
