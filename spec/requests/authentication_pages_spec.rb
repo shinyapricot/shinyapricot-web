@@ -4,11 +4,19 @@ describe "Authentication" do
 
   subject { page }
 
+  describe "before sign in" do
+    before { visit root_path }
+
+    it { should_not have_link('Profile') }
+    it { should_not have_link('Settings') }
+  end
+
   describe "signin page" do
     before { visit signin_path }
 
     it { should have_selector('h1',    text: 'Sign in') }
     it { should have_title('Sign in') }
+
   end
 
   describe "signin" do
@@ -41,6 +49,16 @@ describe "Authentication" do
         before { click_link "Sign out" }
         it { should have_link('Sign in') }
       end
+
+      describe "on user/new" do
+        before { get new_user_path }
+        specify { response.should redirect_to(root_path) }
+      end
+
+      describe "on user#create" do
+        before { post users_path }
+        specify { response.should redirect_to(root_path) }
+      end
     end
 
   end
@@ -63,6 +81,7 @@ describe "Authentication" do
           it "should render the desired protected page" do
             page.should have_title('Edit user')
           end
+
         end
       end
 
